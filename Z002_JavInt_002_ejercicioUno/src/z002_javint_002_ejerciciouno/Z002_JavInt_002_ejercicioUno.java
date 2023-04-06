@@ -7,7 +7,7 @@ public class Z002_JavInt_002_ejercicioUno {
     public static void main(String[] args) {
         System.out.println("---------------------");
         System.out.println("BYTE   BYTE   BYTE");
-        byte numeroByte = 10;
+        byte numeroByte = 100000;
         System.out.println("Min_Value: " + Byte.MIN_VALUE);
         System.out.println("Max_Value: " + Byte.MAX_VALUE);
         System.out.println("Bytes: " + Byte.BYTES);
