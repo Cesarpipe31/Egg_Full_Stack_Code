@@ -5,18 +5,22 @@ calcular y mostrar el resultado de la suma de los números leídos, pero si el n
 es negativo no debe sumarse. Nota: recordar el uso de la sentencia break.
  */
 //20 números.  num == 0 salir de bucle y "Se capturó el número cero". num < 0 no debe sumarse. Usar break.
-package z002_javint_014_sumaveintenumerospositivos;
+
+package z002_javint_015_sumaveintenumerospositivosnuevo;
 
 import java.util.Scanner;
 
-public class Z002_JavInt_014_sumaVeinteNumerosPositivos {
+public class Z002_JavInt_015_sumaVeinteNumerosPositivosNuevo {
 
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);        
-        int nota, sumaNumeros, cant;
+        int nota, sumaNumeros, cant, cantSuma;
         sumaNumeros = 0;
         cant = 0;
-        for (int i = 0; i < 20; i++) {
+        cantSuma = 0;
+        do
+        {
+            cant++;
             System.out.println("Escriba el número entero a sumar: ");
             nota = leer.nextInt();
             if (nota == 0) {
@@ -24,10 +28,12 @@ public class Z002_JavInt_014_sumaVeinteNumerosPositivos {
                 break;
             }
             if (nota > 0) {
-                sumaNumeros = sumaNumeros + nota;
-                cant++;
-            }                     
-        }
-        System.out.println("Ha escrito " + cant + " números mayores que 0 cuya suma es: " + sumaNumeros + ".");
+                sumaNumeros = sumaNumeros + nota;                
+                cantSuma++;
+            }                                 
+        }while (cant < 20);                      
+        
+        System.out.println("Ha escrito " + cantSuma + " números mayores que 0 cuya suma es: " + sumaNumeros + ".");
     }
+    
 }
