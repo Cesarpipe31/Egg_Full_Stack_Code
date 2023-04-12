@@ -29,8 +29,11 @@ public class Z002_JavInt_01801_cambiarVocalporCaracterNuevo {
     public static void main(String[] args) {        
         Scanner leer = new Scanner(System.in);
         System.out.println("Escriba una frase terminada con el signo punto (.)");
+        String fraseNueva;
         String frase = leer.nextLine();           
-        codificar(frase);        
+        fraseNueva = codificar(frase); 
+        System.out.println(fraseNueva);
+        
     }
     
     
@@ -45,7 +48,8 @@ public class Z002_JavInt_01801_cambiarVocalporCaracterNuevo {
                 case 'o': parteFrase = '%'; break;
                 case 'u': parteFrase = '*'; break;                                
             }            
-            fraseNueva = fraseNueva.concat(parteFrase);            
+            fraseNueva = fraseNueva + fraseNueva.valueOf(parteFrase);  
+            //   fraseNueva = fraseNueva + String.valueOf(parteFrase); también funciona
         }
         return fraseNueva;
     }    
