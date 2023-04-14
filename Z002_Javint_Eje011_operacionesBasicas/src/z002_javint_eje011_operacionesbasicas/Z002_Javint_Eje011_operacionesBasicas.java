@@ -1,3 +1,5 @@
+// new java.util.Scanner(System.in).nextLine();
+
 /*
 Realizar un programa que pida dos números enteros positivos por teclado 
 y muestre por pantalla el siguiente menú:
@@ -35,6 +37,12 @@ public class Z002_Javint_Eje011_operacionesBasicas {
         
         invocarMenu(numero1, numero2);
         
+    }
+    
+    public static void pausar(){
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Oprima una tecla para continuar...");
+        String teclaPausar = leer.nextLine();
     }
 
     public static void menu() {
@@ -83,19 +91,23 @@ public class Z002_Javint_Eje011_operacionesBasicas {
     public static void switchMenu(int opcion, int num1, int num2){
         switch (opcion) {
             case 1:
-                sumar(num1, num2);                
-                invocarMenu(num1, num2);
+                sumar(num1, num2);
+                pausar();
+                invocarMenu(num1, num2);                
                 break;
             case 2:
                 restar(num1, num2);
+                pausar();
                 invocarMenu(num1, num2);
                 break;
             case 3:
                 multiplicar(num1, num2);
+                pausar();
                 invocarMenu(num1, num2);
                 break;
             case 4:
                 dividir(num1, num2);
+                pausar();
                 invocarMenu(num1, num2);
                 break;
             case 5:
@@ -104,7 +116,7 @@ public class Z002_Javint_Eje011_operacionesBasicas {
                 String opcionSalir = leer.nextLine();
                 opcionSalir = opcionSalir.substring(0,1);                
                 if (opcionSalir.equals("s")){
-                    System.out.println("Gracias por utilizar nuestro sistema.  Hasta pronto!!!");
+                    System.out.println("Gracias por utilizar nuestros servicios.  Hasta pronto!!!");
                     break;
                 }else if (opcionSalir.equals("n")){
                     invocarMenu(num1, num2);
