@@ -19,11 +19,11 @@ public class Z002_JavInt_ejEx05_tresTiposSocios {
     public static void main(String[] args) {
         int opcion;
         double valor;
-        Scanner leer = new Scanner(System.in);
-        menu();
-        opcion = leer.nextInt();
+        Scanner leer = new Scanner(System.in);                
         System.out.println("Escriba el valor del tratamiento para calcular su descuento (sin puntuación):");
         valor = leer.nextDouble();
+        menu();
+        opcion = leer.nextInt();
         calcular(opcion, valor);
         System.out.println("");
     }
