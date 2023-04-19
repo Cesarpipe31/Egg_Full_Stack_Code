@@ -23,6 +23,7 @@ public class Z002_JavInt_ejEx02_cuatroVariablesIntercambiar {
         System.out.println(" b es " + b + " y tomará el valor de c, es decir " + c);
         System.out.println(" c es " + c + " y tomará el valor de a, es decir " + a);
         System.out.println(" d es " + d + " y tomará el valor de b, es decir " + b);
+        
         aux = a;
         a = d;
         d = c;
@@ -39,3 +40,6 @@ public class Z002_JavInt_ejEx02_cuatroVariablesIntercambiar {
     }
     
 }
+
+
+        
