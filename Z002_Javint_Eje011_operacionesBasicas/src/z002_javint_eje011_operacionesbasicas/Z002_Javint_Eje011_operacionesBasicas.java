@@ -1,5 +1,3 @@
-// new java.util.Scanner(System.in).nextLine();
-
 /*
 Realizar un programa que pida dos números enteros positivos por teclado 
 y muestre por pantalla el siguiente menú:
