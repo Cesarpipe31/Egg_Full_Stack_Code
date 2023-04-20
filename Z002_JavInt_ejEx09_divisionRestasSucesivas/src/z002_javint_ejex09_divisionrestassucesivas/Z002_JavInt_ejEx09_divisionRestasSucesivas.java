@@ -17,7 +17,7 @@ package z002_javint_ejex09_divisionrestassucesivas;
 public class Z002_JavInt_ejEx09_divisionRestasSucesivas {
 
     public static void main(String[] args) {
-        int num1 = (int) (Math.random() * 99999 + 1);
+        int num1 = (int) (Math.random() * 9999 + 1);
         int num2 = (int) (Math.random() * 99 + 1);
         //int num1 = 50, num2 = 13;
         int cociente = 0, residuo = 0;

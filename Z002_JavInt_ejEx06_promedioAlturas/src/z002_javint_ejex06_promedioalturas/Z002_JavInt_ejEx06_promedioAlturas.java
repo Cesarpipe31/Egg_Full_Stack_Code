@@ -8,7 +8,7 @@ package z002_javint_ejex06_promedioalturas;
 public class Z002_JavInt_ejEx06_promedioAlturas {
 
     public static void main(String[] args) {
-        int cantTotal = 0, cantParcial = 0, cantElementos = 100;       
+        int cantTotal = 0, cantParcial = 0, cantElementos = 3;       
         float [] vector = new float [cantElementos];
         float altura = 0, promTotal = 0, promParcial = 0, sumTotal = 0, sumParcial = 0;        
         for (int i = 0; i < cantElementos; i++) {
