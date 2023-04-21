@@ -11,7 +11,8 @@ import java.util.Scanner;
 public class Z002_JavInt_ejEx16_nombreyEdadPersonas {
 
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in);
+        Scanner leerString = new Scanner(System.in);
+        Scanner leerNumero = new Scanner(System.in);
         String nombre = "";
         String sN = "";
         int edad = 0;
@@ -19,16 +20,16 @@ public class Z002_JavInt_ejEx16_nombreyEdadPersonas {
 
         do {
             System.out.println("Escriba el nombre:");
-            nombre = leer.nextLine();
+            nombre = leerString.nextLine();
             System.out.println("Escriba la edad de " + nombre);
-            edad = leer.nextInt();
+            edad = leerNumero.nextInt();
             if (edad > 17) {
                 System.out.println(nombre + " con " + edad + " años es mayor de edad");
             } else {
                 System.out.println(nombre + " con " + edad + " años es menor de edad");
             }
             System.out.println("Desea continuar (s/n): ");
-            sN = leer.next();
+            sN = leerString.nextLine();
             if (sN.equals("s")) {
                 continuar = true;
             } else if (sN.equals("n")) {
