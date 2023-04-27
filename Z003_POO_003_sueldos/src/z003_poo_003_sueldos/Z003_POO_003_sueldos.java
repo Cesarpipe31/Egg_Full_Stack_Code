@@ -10,6 +10,11 @@ public class Z003_POO_003_sueldos {
         Vendedor v1 = sv.altaVendedor();
         sv.SueldoMensual(v1);
         sv.vacaciones(v1);
+        
+        ServicioVendedor sv1 = new ServicioVendedor();
+        Vendedor v2 = sv.altaVendedor();
+        sv1.SueldoMensual(v2);
+        sv1.vacaciones(v2);
     }
 
 }
