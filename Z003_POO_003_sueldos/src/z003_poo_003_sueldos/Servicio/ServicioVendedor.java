@@ -7,9 +7,11 @@ import z003_poo_003_sueldos.Entidades.Vendedor;
 
 public class ServicioVendedor {
            
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    
     public Vendedor altaVendedor(){
         Vendedor v1 = new Vendedor();
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        //Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Ingrese nombre:");
         v1.setNombre(leer.next());
         System.out.println("Ingrese dni:");
@@ -28,9 +30,9 @@ public class ServicioVendedor {
     }        
     
     public void SueldoMensual(Vendedor v1){
-        Scanner leer1 = new Scanner(System.in).useDelimiter("\n");
+        //Scanner leer1 = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Cuales fueron las ventas totales del vendedor: ");
-        Double ventas = leer1.nextDouble();
+        Double ventas = leer.nextDouble();
         v1.setComisiones(ventas * 0.15);
         v1.setSueldoMensual(v1.getSueldoBasico() + v1.getComisiones());
         System.out.println("El sueldo mensual del vendedor: " 
@@ -40,6 +42,7 @@ public class ServicioVendedor {
     public void vacaciones (Vendedor v1){
         Date hoy = new Date();
         int antiguedad = hoy.getYear() - v1.getFechaInicio().getYear();
+        
         
         if (antiguedad < 5){
             System.out.println("Le corresponde 14 días de vacaciones");
