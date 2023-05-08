@@ -25,9 +25,11 @@ public class Z003_POO_Eje005_cuentaBancaria {
 
     public static void main(String[] args) {
         serviceCuenta sc = new serviceCuenta();
-        Cuenta c1 = sc.crearCuenta();
-        System.out.println(c1.toString());
-                
-    }
-    
+        Cuenta c1 = sc.crearCuenta();        
+        c1.setSaldoActual(sc.ingresar());
+        System.out.println("Nuevo Saldo: " + c1.getSaldoActual());
+        sc.extraerRapido();
+        sc.consultarSaldo();
+        sc.consultarDatos();
+    }    
 }
