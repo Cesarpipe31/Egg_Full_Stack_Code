@@ -14,7 +14,7 @@ public class ServiceDate {
         do {
             System.out.println("Registre el día: ");
             dia = leer.nextInt();
-        } while (dia < 0 && dia >= 32);
+        } while (dia < 0 && dia >= 31);
         do {
             System.out.println("Registre el mes: ");
             mes = leer.nextInt();

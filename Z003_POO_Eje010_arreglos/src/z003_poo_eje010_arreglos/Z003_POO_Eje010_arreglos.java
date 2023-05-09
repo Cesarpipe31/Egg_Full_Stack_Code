@@ -47,9 +47,9 @@ public class Z003_POO_Eje010_arreglos {
         Arrays.fill(arrayB, 10, arrayB.length, 0.5);
 
         // Mostrar arregloA ordenado y arregloB combinado
-        System.out.println("Arreglo A ordenado:");
+        System.out.println("\n\nArreglo A ordenado:");
         System.out.println(Arrays.toString(arrayA));
-        System.out.println("Arreglo B combinado:");
+        System.out.println("\nArreglo B combinado:");
         System.out.println(Arrays.toString(arrayB));
     }
 }
