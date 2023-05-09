@@ -28,53 +28,57 @@ distintas variables, para después en el main, calcular un porcentaje de esas 4 
 cuantas están por debajo de su peso, cuantas en su peso ideal y cuantos, por encima, y
 también calcularemos un porcentaje de cuantos son mayores de edad y cuantos menores
  */
-package z003_poo_eje007_personaeimc;
+package service;
 
-import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
 import model.Persona;
-import service.ServicePersona;
 
-public class Z003_POO_Eje007_personaeIMC {
-
-    public static void main(String[] args) {
-        ServicePersona sc = new ServicePersona();
-        ArrayList<Persona> arrayperso = new ArrayList<>();
-
-        Persona p1 = sc.crearPersona();
-        Persona p2 = sc.crearPersona();
-        Persona p3 = sc.crearPersona();
-        Persona p4 = sc.crearPersona();
-
-        arrayperso.add(p1);
-        arrayperso.add(p2);
-        arrayperso.add(p3);
-        arrayperso.add(p4);
-
-        int imc = 0, sobrePeso = 0, pesoIdeal = 0, debajoPeso = 0, mayorEdad = 0, menorEdad = 0;        
-
-        for (int i = 0; i < arrayperso.size(); i++) {
-            imc = sc.calcuclarIMC(arrayperso.get(i));
-
-            if (imc == 1) {                
-                sobrePeso++;
-            } else if (imc == 0) {                
-                pesoIdeal++;
-            } else if (imc == -1) {                
-                debajoPeso++;
-            } else {
-                System.out.println("Error. Revisa la data.");
-            }
-            
-            if (sc.esMayorDeEdad(arrayperso.get(i))) {                
-                mayorEdad++;
-            } else {                
-                menorEdad++;
-            }            
-        }
-        System.out.println("En sobrepeso estan el " +  ((sobrePeso/4)*100)+ "%");
-        System.out.println("En debajo de su peso ideal estan el " +  ((debajoPeso/4)*100)+ "%");
-        System.out.println("En su peso ideal estan el " +  ((pesoIdeal/4)*100)+ "%");
-        System.out.println("El porcentaje de mayores de edad es " +  ((mayorEdad/4)*100)+ "%");
-        System.out.println("El porcentaje de menores de edad es " +  ((menorEdad/4)*100)+ "%");
+public class ServicePersona {
+    Persona p1 = new Persona();
+    Scanner leerString = new Scanner(System.in).useDelimiter("\n");
+    Scanner leerInt = new Scanner(System.in).useDelimiter("\n");
+    Scanner leerChar = new Scanner(System.in).useDelimiter("\n");
+    Scanner leerFloat = new Scanner(System.in).useDelimiter("\n");
+    
+    
+    public Persona crearPersona(){
+        System.out.println("Registre el nombre: ");
+        p1.setNombre(leerString.nextLine());
+        System.out.println("Registre la edad: ");
+        p1.setEdad(leerInt.nextInt());
+        do{
+            System.out.println("Registre el sexo (H, M ó O):");
+            p1.setSexo(leerChar.next().toUpperCase(Locale.ITALY).charAt(0));
+        } while (p1.getSexo() != 'H' && p1.getSexo() != 'M' && p1.getSexo() != 'O');                
+        System.out.println("Registre el peso en kilogramos: ");
+        p1.setPeso(leerFloat.nextFloat());
+        System.out.println("Registre al altura en metros: ");
+        p1.setAltura(leerFloat.nextFloat());     
+        return p1;
     }
+    
+    public int calcuclarIMC(Persona p1){
+        double imc = p1.getPeso()/Math.pow(p1.getAltura(), 2);        
+        if (imc < 20){
+            return -1;            
+        } else if (imc >= 20 && imc <= 25){
+            return 0;
+        } else {
+            return 1;
+        }        
+    }
+    
+    public boolean esMayorDeEdad(Persona p1){
+        boolean bandera = false;
+        if (p1.getEdad() >= 18){
+            bandera = true;
+        } else {
+            bandera = false;
+        }
+        return bandera;
+    }
+    
 }
+
+

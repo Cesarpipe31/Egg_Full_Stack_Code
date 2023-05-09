@@ -28,53 +28,78 @@ distintas variables, para después en el main, calcular un porcentaje de esas 4 
 cuantas están por debajo de su peso, cuantas en su peso ideal y cuantos, por encima, y
 también calcularemos un porcentaje de cuantos son mayores de edad y cuantos menores
  */
-package z003_poo_eje007_personaeimc;
+package model;
 
-import java.util.ArrayList;
-import model.Persona;
-import service.ServicePersona;
+public class Persona {
 
-public class Z003_POO_Eje007_personaeIMC {
+    private String nombre;
+    private int edad;
+    private char sexo;
+    private float peso;
+    private float altura;
 
-    public static void main(String[] args) {
-        ServicePersona sc = new ServicePersona();
-        ArrayList<Persona> arrayperso = new ArrayList<>();
+    public Persona() {
 
-        Persona p1 = sc.crearPersona();
-        Persona p2 = sc.crearPersona();
-        Persona p3 = sc.crearPersona();
-        Persona p4 = sc.crearPersona();
+    }
 
-        arrayperso.add(p1);
-        arrayperso.add(p2);
-        arrayperso.add(p3);
-        arrayperso.add(p4);
+    public Persona(String nombre, int edad, char sexo, float peso, float altura) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.altura = altura;
+    }
 
-        int imc = 0, sobrePeso = 0, pesoIdeal = 0, debajoPeso = 0, mayorEdad = 0, menorEdad = 0;        
+    public String getNombre() {
+        return this.nombre;
+    }
 
-        for (int i = 0; i < arrayperso.size(); i++) {
-            imc = sc.calcuclarIMC(arrayperso.get(i));
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-            if (imc == 1) {                
-                sobrePeso++;
-            } else if (imc == 0) {                
-                pesoIdeal++;
-            } else if (imc == -1) {                
-                debajoPeso++;
-            } else {
-                System.out.println("Error. Revisa la data.");
-            }
-            
-            if (sc.esMayorDeEdad(arrayperso.get(i))) {                
-                mayorEdad++;
-            } else {                
-                menorEdad++;
-            }            
-        }
-        System.out.println("En sobrepeso estan el " +  ((sobrePeso/4)*100)+ "%");
-        System.out.println("En debajo de su peso ideal estan el " +  ((debajoPeso/4)*100)+ "%");
-        System.out.println("En su peso ideal estan el " +  ((pesoIdeal/4)*100)+ "%");
-        System.out.println("El porcentaje de mayores de edad es " +  ((mayorEdad/4)*100)+ "%");
-        System.out.println("El porcentaje de menores de edad es " +  ((menorEdad/4)*100)+ "%");
+    public int getEdad() {
+        return this.edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public char getSexo() {
+        return this.sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public float getPeso() {
+        return this.peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public float getAltura() {
+        return this.altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Persona{");
+        sb.append("nombre=").append(nombre);
+        sb.append(", edad=").append(edad);
+        sb.append(", sexo=").append(sexo);
+        sb.append(", peso=").append(peso);
+        sb.append(", altura=").append(altura);
+        sb.append('}');
+        return sb.toString();
     }
 }
