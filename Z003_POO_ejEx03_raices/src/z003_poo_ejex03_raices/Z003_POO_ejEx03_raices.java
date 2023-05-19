@@ -32,13 +32,11 @@ public class Z003_POO_ejEx03_raices {
     
     public static void main(String[] args) {
         ServiceRaices sr = new ServiceRaices();
-        Raices r1 = sr.crearEcuacion();
-        System.out.println(r1.toString());
-        System.out.println(sr.calcularDiscriminante(r1));
-        System.out.println(sr.tieneRaices(r1));
-        sr.obtenerRaices(r1);
-        sr.obtenerRaiz(r1);
-      
-    }
-    
+        Raices rr = sr.crearEcuacion();
+        System.out.println("Ejemplos:  a = 1; b = 2; c = -15 con resultados 3 y -5");
+        System.out.println("Ejemplos:  a = 1; b = 1; c = 1 con resultados No tiene solución en los reales");
+        System.out.println("Ejemplos:  a = 7; b = 7; c = 7 con resultados No tiene solución en los reales");
+        System.out.println("Ejemplos:  a = -1; b = -1; c = -1 con resultados No tiene solución en los reales");
+        sr.calcular(rr);      
+    }    
 }
