@@ -56,23 +56,82 @@ Longitud de la palabra: 6
 Mensaje: La letra no pertenece a la palabra
 Mensaje: Lo sentimos, no hay más oportunidades
 */
-package z003_poo_ejex06_elahorcado;
+package model;
 
-import model.AhorcadoTodo;
+import java.util.Scanner;
 
-public class Z003_POO_ejEx06_elAhorcado {
+public class AhorcadoTodo {
+    private char[] palabra;
+    private int encontradas;
+    private int jugadasMaximas;
 
-    
-    public static void main(String[] args) {
-     
-        AhorcadoTodo juegoAhorcado = new AhorcadoTodo();
-        juegoAhorcado.crearJuego();
-        System.out.println("Longitud de la palabra: " + juegoAhorcado.longitud());
-        juegoAhorcado.juego();
-    
-        
+    public AhorcadoTodo() {
+        palabra = null;
+        encontradas = 0;
+        jugadasMaximas = 0;
     }
+
+    public void crearJuego() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la palabra a buscar: ");
+        String palabraUsuario = scanner.nextLine();
+        palabra = palabraUsuario.toCharArray();
+        encontradas = 0;
+        System.out.print("Ingrese la cantidad máxima de jugadas: ");
+        jugadasMaximas = scanner.nextInt();
+    }
+
+    public int longitud() {
+        return palabra.length;
+    }
+
+    public boolean buscar(char letra) {
+        for (char c : palabra) {
+            if (c == letra) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean encontradas(char letra) {
+        int cantidadLetras = 0;
+        for (char c : palabra) {
+            if (c == letra) {
+                cantidadLetras++;
+            }
+        }
+        encontradas += cantidadLetras;
+        int faltantes = palabra.length - encontradas;
+        System.out.println("Número de letras (encontradas, faltantes): (" + encontradas + ", " + faltantes + ")");
+        return cantidadLetras > 0;
+    }
+
+    public int intentos() {
+        return jugadasMaximas;
+    }
+
+    public void juego() {
+        Scanner scanner = new Scanner(System.in);
+        while (jugadasMaximas > 0) {
+            System.out.print("Ingrese una letra: ");
+            char letra = scanner.nextLine().charAt(0);
+            if (buscar(letra)) {
+                System.out.println("Mensaje: La letra pertenece a la palabra");
+            } else {
+                jugadasMaximas--;
+                System.out.println("Mensaje: La letra no pertenece a la palabra");
+            }
+            if (encontradas == palabra.length) {
+                System.out.println("¡Felicidades! Has descubierto toda la palabra.");
+                return;
+            }
+            System.out.println("Número de letras (encontradas, faltantes): (" + encontradas + ", " + (palabra.length - encontradas) + ")");
+            System.out.println("Número de oportunidades restantes: " + jugadasMaximas);
+            System.out.println("----------------------------------------------");
+        }
+        System.out.println("Mensaje: Lo sentimos, no hay más oportunidades");
+    }
+
     
 }
-
-
